@@ -11,13 +11,15 @@ public class PickUpScript : MonoBehaviour
 
 
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         
-        if (col.gameObject.tag.Equals("player"))
+        if (col.gameObject.tag.Equals("Player"))
         {
             if (Sword)
                 Debug.Log("The player has the sword, no one is safe");
+            PlayerStats.hasSword = true;
+            Destroy(gameObject);
 
             if (Key)
             {
@@ -27,6 +29,8 @@ public class PickUpScript : MonoBehaviour
             if (Flask)
                 Debug.Log("Ladies and gentlemen, we got him");
         }
-
+        
     }
+
+    
 }

@@ -21,6 +21,6 @@ public class UICurseMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       curseText.text = PlayerCurse.CurseMeter.ToString();
+       curseText.text = PlayerStats.curseMeter.ToString();
     }
 }
