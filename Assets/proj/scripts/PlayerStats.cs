@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour {
     bool hasSword;
     [SerializeField]
     bool hasKey;
-
+    [SerializeField]
     bool hasFlask;
 
     public static int curseMeter;
@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour {
     void Start()
     {
         curseMeter = 0;
+        
     }
 
     void Update()
@@ -36,6 +37,7 @@ public class PlayerStats : MonoBehaviour {
             if (hasSword)
                 Debug.Log("yis kill them all");
         }
+
     }
 
     void smallBad()
@@ -56,5 +58,13 @@ public class PlayerStats : MonoBehaviour {
     public void Setsword(bool set)
     {
         hasSword = set;
+    }
+    public void Setkey(bool set)
+    {
+        hasKey = set;
+    }
+    public void Setflask(bool set)
+    {
+        hasFlask = set;
     }
 }

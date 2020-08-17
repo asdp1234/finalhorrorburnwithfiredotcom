@@ -20,18 +20,26 @@ public class PickUpScript : MonoBehaviour
         if (col.gameObject.tag.Equals("Player"))
         {
             if (Sword)
+            {
                 Debug.Log("The player has the sword, no one is safe");
-            //PlayerStats.hasSword = true;
-            player.Setsword(true);
-            Destroy(gameObject);
+                //PlayerStats.hasSword = true;
+                player.Setsword(true);
+                Destroy(gameObject);
+            }
 
             if (Key)
             {
                 Debug.Log("I got the key, I got the secret");
+                player.Setkey(true);
+                Destroy(gameObject);
             }
 
             if (Flask)
+            {
                 Debug.Log("Ladies and gentlemen, we got him");
+                player.Setflask(true);
+                Destroy(gameObject);
+            }
         }
         
     }
