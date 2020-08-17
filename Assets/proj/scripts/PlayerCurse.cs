@@ -19,7 +19,31 @@ public class PlayerCurse : MonoBehaviour
     {
         if (Input.GetKeyDown("f"))
         {
-            CurseMeter += 10;
+            smallBad();
+        }
+        if (Input.GetKeyDown("g"))
+        {
+            mediumBad();
+        }
+        if (Input.GetKeyDown("h"))
+        {
+            bigBad();
         }
     }
+
+    void smallBad()
+    {
+        CurseMeter += 1;
+    }
+
+    void mediumBad()
+    {
+        CurseMeter += 5;
+    } 
+
+    void bigBad()
+    {
+        CurseMeter += 10;
+    }
+
 }
