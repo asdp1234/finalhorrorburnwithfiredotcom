@@ -45,5 +45,5 @@ public class PlayerCurse : MonoBehaviour
     {
         CurseMeter += 10;
     }
-
+        
 }
