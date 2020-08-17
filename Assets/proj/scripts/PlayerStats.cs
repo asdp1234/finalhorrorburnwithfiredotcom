@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-       
-    public static bool hasSword;
+    [SerializeField]   
+    bool hasSword;
+    [SerializeField]
+    bool hasKey;
 
-    public static bool hasKey;
-
-    public static bool hasFlask;
+    bool hasFlask;
 
     public static int curseMeter;
 
@@ -53,4 +53,8 @@ public class PlayerStats : MonoBehaviour {
         curseMeter += 10;
     }
 
+    public void Setsword(bool set)
+    {
+        hasSword = set;
+    }
 }

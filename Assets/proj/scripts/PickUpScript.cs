@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PickUpScript : MonoBehaviour
 {
-
+    public PlayerStats player;
     public bool  Sword;
     public bool  Key;
     public bool  Flask;
 
-
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerStats>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -18,7 +21,8 @@ public class PickUpScript : MonoBehaviour
         {
             if (Sword)
                 Debug.Log("The player has the sword, no one is safe");
-            PlayerStats.hasSword = true;
+            //PlayerStats.hasSword = true;
+            player.Setsword(true);
             Destroy(gameObject);
 
             if (Key)

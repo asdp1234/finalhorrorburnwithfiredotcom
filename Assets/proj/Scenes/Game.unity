@@ -217,7 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8a38be4e251ae4fa1c322bea97b340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sword: 1
+  player: {fileID: 1240847392}
+  Sword: 0
   Key: 0
   Flask: 0
 --- !u!61 &883056552
@@ -499,6 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d419ac0fc2b204a9c482f20eed3fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasKey: 0
+  hasFlask: 0
 --- !u!1 &1373822352
 GameObject:
   m_ObjectHideFlags: 0
