@@ -11,6 +11,8 @@ public class Playercontroller2d : MonoBehaviour
     [SerializeField]
     Vector2 move = new Vector2(0, 0);
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,10 @@ public class Playercontroller2d : MonoBehaviour
 
     void Update()
     {
-        
+
+        animator.SetFloat("Horizontal", move.x);
+        animator.SetFloat("Vertical", move.y);
+        animator.SetFloat("Speed", move.sqrMagnitude);
+
     }
 }
