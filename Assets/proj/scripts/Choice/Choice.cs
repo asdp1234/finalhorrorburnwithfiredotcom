@@ -35,7 +35,7 @@ public class Choice : MonoBehaviour
     {
         Debug.Log("you did bad thing");
         Destroy(triggerchoice);
-        Destroy(canvis);
+        Destroy(canvis);//change to hide
         Time.timeScale = 1;
     }
     void ChoiceB()
