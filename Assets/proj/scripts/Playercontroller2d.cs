@@ -21,10 +21,17 @@ public class Playercontroller2d : MonoBehaviour
 
     public float swingTime = 1f;
 
+    public float startSwing, endSwing;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        startSwing = 0f;
+        
+        endSwing = -180;
     }
 
     // Update is called once per frame
@@ -49,30 +56,48 @@ public class Playercontroller2d : MonoBehaviour
 
             if (!isSwinging)
             {
-                StartCoroutine(swingSword());
+                sword.SetActive(true);
+
+                isSwinging = true;
             }
             
         }
 
-        if (isSwinging)
+
+       
+
+
+        if (sword.transform.eulerAngles.z >= 90)
         {
-            sword.transform.Rotate(Vector3.back * swingSpeed * Time.deltaTime);
+            isSwinging = false;
+
+            sword.transform.eulerAngles = new Vector3 (sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, 0);
+
+            sword.SetActive(false);
+
+        }
+
+        if (sword.transform.eulerAngles.z >= 45)
+        {
+
+        }
+
+            if (isSwinging)
+        {
+            if (sword.transform.eulerAngles.z <= 45)
+            {
+                sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed * 2);
+            }
             
+            if (sword.transform.eulerAngles.z >= 45)
+            {
+                sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed);
+            }
+
         }
 
     }
 
-    public IEnumerator swingSword()
-    {
-        sword.SetActive(true);
-
-        isSwinging = true;
-
-        yield return new WaitForSeconds(swingTime);
-
-        sword.SetActive(false);
-        isSwinging = false;
-    }
     
 
     
