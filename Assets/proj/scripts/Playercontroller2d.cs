@@ -23,6 +23,8 @@ public class Playercontroller2d : MonoBehaviour
 
     public float startSwing, endSwing;
 
+    public float directionSwing;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,18 @@ public class Playercontroller2d : MonoBehaviour
        // animator.SetFloat("Horizontal", move.x);
       //  animator.SetFloat("Vertical", move.y);
      //   animator.SetFloat("Speed", move.sqrMagnitude);
+
+
+        if (move.x <= 0)
+        {
+            gameObject.transform.localScale = new Vector3(-4, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+        }
+
+        else
+        {
+            gameObject.transform.localScale = new Vector3(4, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+        }
+
 
         if (Input.GetKeyDown("space"))
         {
