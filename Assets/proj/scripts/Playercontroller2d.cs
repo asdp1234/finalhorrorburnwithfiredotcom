@@ -11,7 +11,7 @@ public class Playercontroller2d : MonoBehaviour
     [SerializeField]
     Vector2 move = new Vector2(0, 0);
 
-   // public Animator animator;
+    public Animator animator;
 
     public GameObject sword;
 
@@ -25,6 +25,13 @@ public class Playercontroller2d : MonoBehaviour
 
     public float directionSwing;
 
+    public bool facingRightSwing, facingLeftSwing;
+
+    public bool direction;
+
+    public GameObject graphics;
+
+    private bool greater = false;
 
     // Start is called before the first frame update
     void Start()
@@ -48,19 +55,28 @@ public class Playercontroller2d : MonoBehaviour
     void Update()
     {
 
-       // animator.SetFloat("Horizontal", move.x);
-      //  animator.SetFloat("Vertical", move.y);
-     //   animator.SetFloat("Speed", move.sqrMagnitude);
-
-
-        if (move.x <= 0)
+      if (move.sqrMagnitude == 0)
         {
-            gameObject.transform.localScale = new Vector3(-4, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            animator.SetBool("IsMoving", false);
+        }
+      else
+        {
+            animator.SetBool("IsMoving", true);
+        }
+      
+
+
+        if (move.x <= -0.01)
+        {
+            graphics.transform.localScale = new Vector3(-1, graphics.transform.localScale.y, graphics.transform.localScale.z);
+
+            direction = true;
         }
 
-        else
+        if (move.x >= 0.01)
         {
-            gameObject.transform.localScale = new Vector3(4, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            graphics.transform.localScale = new Vector3(1, graphics.transform.localScale.y, graphics.transform.localScale.z);
+            direction = false;
         }
 
 
@@ -70,49 +86,129 @@ public class Playercontroller2d : MonoBehaviour
 
             if (!isSwinging)
             {
-                sword.SetActive(true);
+                
 
                 isSwinging = true;
+
+                if (direction)
+                {
+                    Swingleft();
+                }
+
+                if (!direction)
+                {
+                    Swingright();
+                }
+
+               
             }
             
         }
 
 
-       
 
-
-        if (sword.transform.eulerAngles.z >= 90)
+        if (facingRightSwing)
         {
-            isSwinging = false;
+            if (sword.transform.eulerAngles.z >= 225)
+            {
+                isSwinging = false;             
 
-            sword.transform.eulerAngles = new Vector3 (sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, 0);
+                sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, 135);
 
-            sword.SetActive(false);
+                sword.SetActive(false);
+
+                facingRightSwing = false;
+
+            }
 
         }
 
-        if (sword.transform.eulerAngles.z >= 45)
+        if (facingLeftSwing)
         {
+            if (sword.transform.eulerAngles.z <= 1)
 
+            {
+                greater = true;
+            }
+
+            if (greater)
+            {
+                if (sword.transform.eulerAngles.z >= 35)
+                {
+                    isSwinging = false;
+
+                    sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, -35);
+
+                    sword.SetActive(false);
+
+                    facingLeftSwing = false;
+
+                    greater = false;
+
+                }
+            }
         }
 
-            if (isSwinging)
+        if (isSwinging)
         {
-            if (sword.transform.eulerAngles.z <= 45)
-            {
-                sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed * 2);
-            }
-            
-            if (sword.transform.eulerAngles.z >= 45)
-            {
-                sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed);
-            }
 
+            if (facingRightSwing)
+            {
+
+                if (sword.transform.eulerAngles.z <= 180)
+                {
+                    sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed * 2);
+                }
+
+                if (sword.transform.eulerAngles.z >= 180)
+                {
+                    sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed);
+                }
+            }
+            if (facingLeftSwing)
+            {
+
+                if (sword.transform.eulerAngles.z <= 0)
+                {
+                    sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed * 2);
+                }
+
+                if (sword.transform.eulerAngles.z >= 0  )
+                {
+                    sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, sword.transform.eulerAngles.z + swingSpeed);
+                }
+            }
         }
 
     }
 
-    
+    void Swingleft()
+    {
 
-    
+        sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, -35);
+
+        sword.SetActive(true);
+
+        facingLeftSwing = true;
+
+            
+
+    }
+
+    void Swingright()
+    {
+
+        sword.transform.eulerAngles = new Vector3(sword.transform.eulerAngles.x, sword.transform.eulerAngles.y, 135);
+
+        sword.SetActive(true);
+
+        facingRightSwing = true;
+
+
+    }
+
+
+
+
+
 }
