@@ -11,7 +11,15 @@ public class Playercontroller2d : MonoBehaviour
     [SerializeField]
     Vector2 move = new Vector2(0, 0);
 
-    public Animator animator;
+   // public Animator animator;
+
+    public GameObject sword;
+
+    public int swingSpeed = 20;
+
+    private bool isSwinging = false;
+
+    public float swingTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +39,41 @@ public class Playercontroller2d : MonoBehaviour
     void Update()
     {
 
-        animator.SetFloat("Horizontal", move.x);
-        animator.SetFloat("Vertical", move.y);
-        animator.SetFloat("Speed", move.sqrMagnitude);
+       // animator.SetFloat("Horizontal", move.x);
+      //  animator.SetFloat("Vertical", move.y);
+     //   animator.SetFloat("Speed", move.sqrMagnitude);
+
+        if (Input.GetKeyDown("space"))
+        {
+
+
+            if (!isSwinging)
+            {
+                StartCoroutine(swingSword());
+            }
+            
+        }
+
+        if (isSwinging)
+        {
+            sword.transform.Rotate(Vector3.back * swingSpeed * Time.deltaTime);
+            
+        }
 
     }
+
+    public IEnumerator swingSword()
+    {
+        sword.SetActive(true);
+
+        isSwinging = true;
+
+        yield return new WaitForSeconds(swingTime);
+
+        sword.SetActive(false);
+        isSwinging = false;
+    }
+    
+
+    
 }
