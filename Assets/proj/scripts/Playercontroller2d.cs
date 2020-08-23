@@ -5,7 +5,7 @@ using UnityEngine;
 public class Playercontroller2d : MonoBehaviour
 {
     [SerializeField]
-    float speed = 5;
+    float speed = 1;
     [SerializeField]
     Rigidbody2D rb;
     [SerializeField]
