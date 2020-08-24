@@ -32,6 +32,7 @@ public class Playercontroller2d : MonoBehaviour
     public GameObject graphics;
 
     private bool greater = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +87,7 @@ public class Playercontroller2d : MonoBehaviour
 
             if (!isSwinging)
             {
-                
+               
 
                 isSwinging = true;
 
