@@ -56,7 +56,7 @@ public class Playercontroller2d : MonoBehaviour
     void Update()
     {
 
-      if (move.sqrMagnitude == 0)
+      if (move.sqrMagnitude <= 0.01)
         {
             animator.SetBool("IsMoving", false);
         }
