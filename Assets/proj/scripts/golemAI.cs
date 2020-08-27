@@ -15,17 +15,22 @@ public class golemAI : MonoBehaviour
     {
         if (!idelstate)
         {
-            float step = speed * Time.deltaTime; // calculate distance to move
-            transform.position = Vector3.MoveTowards(transform.position, point2.position, step);
+          
             if (Vector3.Distance(transform.position, point2.position) < 0.001f)
             {
-                left = true;
-                //transform.position = Vector3.MoveTowards(transform.position, point1.position, step);
+                left = true;   
             }
             if (Vector3.Distance(transform.position, point1.position) < 0.001f)
             {
-                left = false;
-                //transform.position = Vector3.MoveTowards(transform.position, point1.position, step);
+                left = false; 
+            }
+            if (left)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, point1.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, point2.position, speed * Time.deltaTime);
             }
         }
         else
