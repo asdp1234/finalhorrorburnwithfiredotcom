@@ -23,6 +23,9 @@ public class golemAI : MonoBehaviour
 
     float ntime = 3,ctime;
 
+
+    public GameObject Explosions;
+
     private void Start()
     {
         holder = GameObject.FindGameObjectWithTag("Player");
@@ -54,7 +57,10 @@ public class golemAI : MonoBehaviour
         }
 
       
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Destroy(this);
+        }
 
 
         if (!idelstate)
@@ -100,6 +106,12 @@ public class golemAI : MonoBehaviour
 
     }
 
+
+    private void OnDestroy()
+    {
+        GameObject effectinstance = (GameObject)Instantiate(Explosions, transform.position, transform.rotation);
+        Destroy(effectinstance, 5f);
+    }
 
 }
         
