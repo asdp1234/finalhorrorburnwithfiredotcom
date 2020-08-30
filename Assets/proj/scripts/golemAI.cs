@@ -8,21 +8,54 @@ public class golemAI : MonoBehaviour
     [SerializeField]
     Transform point1, point2;
     [SerializeField]
-    float speed  = 3;
+    float speed = 3;
     bool left = false;
+    Playercontroller2d player;
     // Update is called once per frame
+
+    Vector2 playerpos;
+
+    public GameObject go,holder;
+
+    float ntime = 3,ctime;
+
+    private void Start()
+    {
+        holder = GameObject.FindGameObjectWithTag("Player");
+        player = holder.GetComponent<Playercontroller2d>();
+
+       
+    }
+
+
+
     void Update()
     {
+        ctime += Time.deltaTime;
+        Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+
+        if (Vector3.Distance(transform.position, player.transform.position) < 100.05f)
+        {
+            if (ctime >= ntime)
+            {
+             Instantiate(go,this.transform);
+                ctime = 0;
+            }
+
+        }
+
+
+
         if (!idelstate)
         {
-          
+
             if (Vector3.Distance(transform.position, point2.position) < 0.001f)
             {
-                left = true;   
+                left = true;
             }
             if (Vector3.Distance(transform.position, point1.position) < 0.001f)
             {
-                left = false; 
+                left = false;
             }
             if (left)
             {
@@ -38,4 +71,8 @@ public class golemAI : MonoBehaviour
 
         }
     }
+
 }
+        
+        
+

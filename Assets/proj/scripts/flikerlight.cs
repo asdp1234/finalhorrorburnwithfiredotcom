@@ -6,7 +6,7 @@ public class flikerlight : MonoBehaviour
 {
     // Start is called before the first frame update
     public Light2D lantern;
-    float startinten = .83f,topinten = 1.0f;
+    float startinten = 1.54f,topinten = 1.76f;
     float neededtime = .75f, currenttime;
     bool tickup;
 
