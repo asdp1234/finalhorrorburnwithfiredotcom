@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class Choice : MonoBehaviour
 {
-    public GameObject triggerchoice;
+    public GameObject triggerchoice,go;
     public GameObject canvis;
     public Button A, B;
-    public PlayerStats;
+    public PlayerStats player;
 
     // Start is called before the first frame update
     void Start()
     {
+        go = GameObject.FindGameObjectWithTag("Player");
         A.onClick.AddListener(ChoiceA);
         B.onClick.AddListener(ChoiceB);
+        player = go.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,11 @@ public class Choice : MonoBehaviour
         {
             Debug.Log("b pressed");
             ChoiceB();
+        }
+        if (player.getcurse() > 50)
+        {
+            B.GetComponent<Image>().color = new Color32(77, 77, 77, 100);
+            B.GetComponent<Button>().enabled = false;
         }
     }
 
@@ -47,8 +54,5 @@ public class Choice : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    if (getcurse())
-	{
-
-	}
+  
 }

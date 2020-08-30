@@ -17,13 +17,13 @@ public class PlayerStats : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        curseMeter = 0;
+        curseMeter = 99;
         
     }
 
     void Update()
     {
-        
+        Debug.Log(curseMeter);
 
     }
 
