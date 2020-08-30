@@ -11,6 +11,9 @@ public class Playercontroller2d : MonoBehaviour
     [SerializeField]
     Vector2 move = new Vector2(0, 0);
 
+    [SerializeField]
+    float health = 5;
+
     public Animator animator;
 
     public GameObject sword;
@@ -55,6 +58,11 @@ public class Playercontroller2d : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            //menu
+        }
+
 
       if (move.sqrMagnitude <= 0.01)
         {
@@ -208,7 +216,10 @@ public class Playercontroller2d : MonoBehaviour
 
     }
 
-
+    public void Damagehealth()
+    {
+        health--;
+    }
 
 
 

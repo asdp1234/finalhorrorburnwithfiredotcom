@@ -49,7 +49,7 @@ public class shroom_missile : ObjectCompendium
         if (other.gameObject.tag == "Player")
         {
 
-            Debug.Log("owch");
+            player.Damagehealth();
             Destroy(gameObject);
 
         }
