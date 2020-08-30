@@ -4548,6 +4548,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7342155972289218430, guid: 0ff7de146a11fdc4c9c10342e4f41c41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.78
+      objectReference: {fileID: 0}
     - target: {fileID: 7342155972289218431, guid: 0ff7de146a11fdc4c9c10342e4f41c41,
         type: 3}
       propertyPath: speed
@@ -6221,7 +6226,7 @@ PrefabInstance:
     - target: {fileID: 5870880461042344591, guid: 842e0a73a954e8d46b8623379befe4d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.46
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5870880461716607719, guid: 842e0a73a954e8d46b8623379befe4d4,
         type: 3}
@@ -6251,7 +6256,12 @@ PrefabInstance:
     - target: {fileID: 7966396677366139010, guid: 842e0a73a954e8d46b8623379befe4d4,
         type: 3}
       propertyPath: m_LightType
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966396677366139010, guid: 842e0a73a954e8d46b8623379befe4d4,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 5870880461875856406, guid: 842e0a73a954e8d46b8623379befe4d4,
         type: 3}

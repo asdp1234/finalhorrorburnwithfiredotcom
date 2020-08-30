@@ -31,7 +31,7 @@ public class shroom_missile : ObjectCompendium
     void Update()
     {
 
-        rb.rotation += -165.0f * Time.unscaledDeltaTime;
+        //rb.rotation += -165.0f * Time.unscaledDeltaTime;
 
         
 
