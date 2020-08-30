@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour {
     [SerializeField]
     bool hasFlask;
 
-    public static int curseMeter;
+    public static int curseMeter, runeCount;
 
 
     // Start is called before the first frame update
@@ -23,20 +23,7 @@ public class PlayerStats : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown("f"))
-        {
-            smallBad();
-        }
-        if (Input.GetKeyDown("g"))
-        {
-            mediumBad();
-        }
-        if (Input.GetKeyDown("h"))
-        {
-            bigBad();
-            if (hasSword)
-                Debug.Log("yis kill them all");
-        }
+        
 
     }
 
@@ -50,7 +37,7 @@ public class PlayerStats : MonoBehaviour {
         curseMeter += 5;
     }
 
-    void bigBad()
+    public void bigBad()
     {
         curseMeter += 10;
     }
@@ -67,4 +54,9 @@ public class PlayerStats : MonoBehaviour {
     {
         hasFlask = set;
     }
+    public int getcurse()
+    {
+        return curseMeter;
+    }
+
 }

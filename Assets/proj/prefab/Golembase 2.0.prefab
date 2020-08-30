@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1255990236229152314}
   m_Layer: 0
   m_Name: Golemsprite
-  m_TagString: Untagged
+  m_TagString: BadGuy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -8,6 +8,7 @@ public class Choice : MonoBehaviour
     public GameObject triggerchoice;
     public GameObject canvis;
     public Button A, B;
+    public PlayerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class Choice : MonoBehaviour
 
     void ChoiceA()
     {
-        Debug.Log("you did bad thing");
+        Debug.Log("you did good thing");
         Destroy(triggerchoice);
         Destroy(canvis);//change to hide
         Time.timeScale = 1;
@@ -45,4 +46,9 @@ public class Choice : MonoBehaviour
         Destroy(canvis);
         Time.timeScale = 1;
     }
+
+    if (getcurse())
+	{
+
+	}
 }

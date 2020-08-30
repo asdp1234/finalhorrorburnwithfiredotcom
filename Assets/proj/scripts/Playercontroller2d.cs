@@ -219,6 +219,7 @@ public class Playercontroller2d : MonoBehaviour
     public void Damagehealth()
     {
         health--;
+        Debug.Log(health);
     }
 
 

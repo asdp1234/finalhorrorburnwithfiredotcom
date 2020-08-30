@@ -11,6 +11,8 @@ public class golemAI : MonoBehaviour
     float speed = 3;
     bool left = false;
     Playercontroller2d player;
+    [SerializeField]
+    float health = 2;
     // Update is called once per frame
 
     private bool throwing = false;
@@ -21,16 +23,18 @@ public class golemAI : MonoBehaviour
 
     public GameObject go,holder;
 
-    float ntime = 3,ctime;
+    float ntime = 3,ctime,nhittime = .3f,chittime;
 
 
     public GameObject Explosions;
+
+    public PlayerStats ps;
 
     private void Start()
     {
         holder = GameObject.FindGameObjectWithTag("Player");
         player = holder.GetComponent<Playercontroller2d>();
-
+        ps = holder.GetComponent<PlayerStats>();
        
     }
 
@@ -43,7 +47,7 @@ public class golemAI : MonoBehaviour
     void Update()
     {
         ctime += Time.deltaTime;
-       
+        chittime += Time.deltaTime;
 
         if (Vector3.Distance(transform.position, player.transform.position) < 100.05f)
         {
@@ -57,9 +61,9 @@ public class golemAI : MonoBehaviour
         }
 
       
-        if (Input.GetKeyDown(KeyCode.E))
+        if (health <= 0)
         {
-            Destroy(this);
+            Destroy(this.transform.parent.gameObject);
         }
 
 
@@ -110,9 +114,20 @@ public class golemAI : MonoBehaviour
     private void OnDestroy()
     {
         GameObject effectinstance = (GameObject)Instantiate(Explosions, transform.position, transform.rotation);
+        ps.bigBad();
         Destroy(effectinstance, 5f);
     }
 
+    public void DamageHp()
+    {
+        if (chittime >= nhittime)
+        {
+
+            health--;
+           
+            chittime = 0;
+        }
+    }
 }
         
         
