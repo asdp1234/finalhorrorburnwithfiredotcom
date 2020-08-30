@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        curseMeter = 99;
+        curseMeter = 0;
         
     }
 
