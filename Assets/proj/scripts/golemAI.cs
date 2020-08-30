@@ -13,6 +13,10 @@ public class golemAI : MonoBehaviour
     Playercontroller2d player;
     // Update is called once per frame
 
+    private bool throwing = false;
+
+    public Animator animator;
+
     Vector2 playerpos;
 
     public GameObject go,holder;
@@ -27,22 +31,29 @@ public class golemAI : MonoBehaviour
        
     }
 
+    void ThrowTheRock()
+    {
+        Instantiate(go, this.transform);
+    }
 
 
     void Update()
     {
         ctime += Time.deltaTime;
-        Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+       
 
         if (Vector3.Distance(transform.position, player.transform.position) < 100.05f)
         {
             if (ctime >= ntime)
             {
-             Instantiate(go,this.transform);
+                
+                StartCoroutine(WaitForThrow());
                 ctime = 0;
             }
 
         }
+
+      
 
 
 
@@ -71,6 +82,24 @@ public class golemAI : MonoBehaviour
 
         }
     }
+
+    IEnumerator WaitForThrow()
+    {
+
+        animator.SetBool("Throwing", true);
+
+        idelstate = true;
+        
+        yield return new WaitForSeconds(0.5f);
+
+        animator.SetBool("Throwing", false);
+
+        idelstate = false;
+
+        ThrowTheRock();
+
+    }
+
 
 }
         

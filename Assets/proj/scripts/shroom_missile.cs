@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class shroom_missile : ObjectCompendium
 {
-    [SerializeField]
-    Rigidbody2D rb;
+   // [SerializeField]
+   // Rigidbody2D rb;
 
     GameObject go;
 
@@ -19,11 +19,13 @@ public class shroom_missile : ObjectCompendium
     // Start is called before the first frame update
     void Start()
     {
+        transform.parent = null;
+
         go = GameObject.FindGameObjectWithTag("Player");
         player = go.GetComponent<Playercontroller2d>();
 
         playerpos = player.transform.position;
-
+        
 
     }
 
