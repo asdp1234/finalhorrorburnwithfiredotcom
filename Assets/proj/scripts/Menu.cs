@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     [SerializeField]
-    Button play,help,quit;
+    Button play,help,quit,back;
     [SerializeField]
     Text txt;
 
@@ -16,6 +16,7 @@ public class Menu : MonoBehaviour
     {
         play.onClick.AddListener(Play);
         help.onClick.AddListener(Help);
+        back.onClick.AddListener(Back);
         quit.onClick.AddListener(Quit);
     }
 
@@ -32,6 +33,10 @@ public class Menu : MonoBehaviour
     void Help()
     {
         txt.gameObject.SetActive(true);
+    }
+    void Back()
+    {
+        txt.gameObject.SetActive(false);
     }
     void Quit()
     {
