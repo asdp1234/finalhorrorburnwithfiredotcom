@@ -61,7 +61,7 @@ public class Playercontroller2d : MonoBehaviour
     {
         if (health <= 0)
         {
-            SceneManager.LoadScene("map");
+            SceneManager.LoadScene("Menu");
         }
 
 

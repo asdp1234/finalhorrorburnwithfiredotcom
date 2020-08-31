@@ -28,18 +28,23 @@ public class Choice : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            Debug.Log("a pressed");
-            ChoiceA();
+
+            if (PlayerStats.curseMeter <= 29)
+            {
+
+                Debug.Log("a pressed");
+                ChoiceA();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             Debug.Log("b pressed");
             ChoiceB();
         }
-        if (player.getcurse() > 50)
+        if (PlayerStats.curseMeter >= 30)
         {
-            B.GetComponent<Image>().color = new Color32(77, 77, 77, 100);
-            B.GetComponent<Button>().enabled = false;
+            A.GetComponent<Image>().color = new Color32(77, 77, 77, 100);
+            A.GetComponent<Button>().enabled = false;
         }
     }
 

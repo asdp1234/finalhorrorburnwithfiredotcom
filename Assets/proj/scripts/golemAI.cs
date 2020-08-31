@@ -114,7 +114,7 @@ public class golemAI : MonoBehaviour
     private void OnDestroy()
     {
         GameObject effectinstance = (GameObject)Instantiate(Explosions, transform.position, transform.rotation);
-        ps.bigBad();
+        PlayerStats.curseMeter += 10;
         Destroy(effectinstance, 5f);
     }
 
