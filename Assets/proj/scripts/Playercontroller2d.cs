@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playercontroller2d : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class Playercontroller2d : MonoBehaviour
     {
         if (health <= 0)
         {
-            //menu
+            SceneManager.LoadScene("map");
         }
 
 
