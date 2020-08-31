@@ -7,7 +7,16 @@ public class ButtonActivated : MonoBehaviour
 
     public GameObject Room;
 
+    public Animator floorButtom;
+    
 
+
+
+
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -16,6 +25,10 @@ public class ButtonActivated : MonoBehaviour
         {
             Debug.Log("watch this https://youtu.be/XCawU6BE8P8?t=114");
             EveryOneDies();
+
+
+            floorButtom.SetBool("Pressed", false);
+
         }
 
     }
