@@ -10,6 +10,10 @@ public class Choice : MonoBehaviour
     public Button A, B;
     public PlayerStats player;
 
+    public GameObject White;
+
+    public GameObject Black;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,9 @@ public class Choice : MonoBehaviour
         Destroy(triggerchoice);
         Destroy(canvis);//change to hide
         Time.timeScale = 1;
+
+
+        White.SetActive(true);
     }
     void ChoiceB()
     {
@@ -52,6 +59,8 @@ public class Choice : MonoBehaviour
         Destroy(triggerchoice);
         Destroy(canvis);
         Time.timeScale = 1;
+
+        Black.SetActive(true);
     }
 
   

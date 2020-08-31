@@ -8,8 +8,10 @@ public class ButtonActivated : MonoBehaviour
     public GameObject Room;
 
     public Animator floorButtom;
-    
 
+    public Animator GatesAni;
+
+    public GameObject floorlight;
 
 
 
@@ -26,8 +28,12 @@ public class ButtonActivated : MonoBehaviour
             Debug.Log("watch this https://youtu.be/XCawU6BE8P8?t=114");
             EveryOneDies();
 
+            
+            GatesAni.SetBool("GateOpen", true);
 
-            floorButtom.SetBool("Pressed", false);
+            floorButtom.SetBool("Doom", true);
+
+            floorlight.SetActive(true);
 
         }
 
