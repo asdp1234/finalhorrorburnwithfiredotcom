@@ -5,13 +5,19 @@ using UnityEngine;
 public class hole : MonoBehaviour
 {
 
-    public GameObject respawn;
-
+    public GameObject respawn,go;
     Playercontroller2d player;
+   
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Playercontroller2d>();
+        respawn = GameObject.FindGameObjectWithTag("rspawn");
+        go = GameObject.FindGameObjectWithTag("Player");
+        player = go.GetComponent<Playercontroller2d>();
+
+        
+
+
     }
 
     // Update is called once per frame
@@ -23,8 +29,8 @@ public class hole : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.transform.position = respawn.transform.position;
-           player.Damagehealth();
+            player.transform.position = new Vector2(0,0);
+            other.gameObject.GetComponent<Playercontroller2d>().Damagehealth();
         }
 
     }

@@ -7,6 +7,7 @@ TagManager:
   - One
   - HurtBox
   - BadGuy
+  - rspawn
   layers:
   - Default
   - TransparentFX
